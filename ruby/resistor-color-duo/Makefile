@@ -3,10 +3,10 @@ setup:
 	gem install minitest-reporters
 
 run:
-	ruby hello_world.rb
+	ruby resistor_color_duo.rb
 
 test:
-	ruby -I . -r test_helper hello_world_test.rb
+	ruby -I . -r test_helper resistor_color_duo_test.rb
 
 .PHONY: setup run test
 
