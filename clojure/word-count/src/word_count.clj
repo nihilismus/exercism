@@ -4,9 +4,7 @@
 (defn normalize [string]
   (-> string
       (str/lower-case)
-      (str/replace #"[!@$%^&:,]" " ")
-      (str/replace #"  *" " ")
-      (str/split #"\s")))
+      (str/split #"\W+")))
 
 (defn word-count [string]
   (let [normalized (normalize string)]
