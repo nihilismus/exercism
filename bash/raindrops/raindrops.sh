@@ -1,30 +1,25 @@
 #!/usr/bin/env bash
 
+drip() {
+  (( $1 % $2 == 0 )) && echo "Pl${3}ng"
+}
+
 pling() {
-  if [ $((${1} % 3)) -eq 0 ]; then
-    echo "Pling"
-  fi
+  drip $1 3 i
 }
 
 plang() {
-  if [ $((${1} % 5)) -eq 0 ]; then
-    echo "Plang"
-  fi
+  drip $1 5 a
 }
 
 plong() {
-  if [ $((${1} % 7)) -eq 0 ]; then
-    echo "Plong"
-  fi
+  drip $1 7 o
 }
 
 main () {
-  local number="${1}"
-  local result="$(pling ${number})$(plang ${number})$(plong ${number})"
-  if [ -z "${result}" ]; then
-    result="${number}"
-  fi
-  echo "${result}"
+  local number="$1"
+  local sound="$(pling ${number})$(plang ${number})$(plong ${number})"
+  echo "${sound:-$number}"
 }
 
 main "$@"
